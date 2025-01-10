@@ -38,6 +38,6 @@
             <button type="submit" class="btn btn-primary">Update Product</button>
         </form>
     </div>
-<%@ include file="footer.jsp" %>
+
 </body>
 </html>

@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%><%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,43 +8,107 @@
     <title>Registration Form</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
         }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+            font-size: 24px;
+        }
+
         .form-container {
             width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fff;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        input, label {
-            width: 100%;
-            margin: 10px 0;
-            padding: 8px;
-            box-sizing: border-box;
+
+        label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
         }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
         input[type="submit"] {
-            width: auto;
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        input[type="submit"] {
             background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
-            padding: 10px 20px;
+            transition: background-color 0.3s ease;
         }
+
         input[type="submit"]:hover {
             background-color: #45a049;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .error,
+        .success {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
         }
     </style>
 </head>
 <body>
 
-    <h2 style="text-align:center;">User Registration</h2>
+    <h2>User Registration</h2>
 
     <div class="form-container">
-        <form action="regstraion" method="POST">
-          
+        <form action="registration" method="POST">
+
             <label for="name">First Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -66,17 +131,18 @@
             <input type="password" id="password" name="password" required>
 
             <input type="submit" value="Register">
-            <a href="login.jsp">Login </a>
             
+            <a href="login.jsp">Already have an account? Login here</a>
+
             <c:if test="${not empty error}">
-    <div class="error">${error}</div>
-</c:if>
-<c:if test="${not empty success}">
-    <div class="success">${success}</div>
-</c:if>
-            
+                <div class="error">${error}</div>
+            </c:if>
+            <c:if test="${not empty success}">
+                <div class="success">${success}</div>
+            </c:if>
+
         </form>
     </div>
-<%@ include file="footer.jsp" %>
+
 </body>
 </html>

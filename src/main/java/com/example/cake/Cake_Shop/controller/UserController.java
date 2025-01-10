@@ -37,7 +37,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String home() {
-        return "registration.jsp";
+        return "Home.jsp";
     }
 
     @RequestMapping("/registration")
