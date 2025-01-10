@@ -9,7 +9,9 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f7fa;
+            background-image:url('uploads/berries.jpg');
+            background-size:1900px;
+            background-repeat:no-repeat;
             margin: 0;
             padding: 0;
         }
@@ -17,22 +19,22 @@
         h2 {
             text-align: center;
             margin-top: 40px;
-            color: #333;
-            font-size: 24px;
+            color:#000000;
+            font-size: 30px;
         }
 
         .form-container {
-            width: 400px;
-            margin: 50px auto;
-            padding: 30px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+           width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #cab1b100;
+    border-radius: 8px;
+    background-color: #b3b0b0d1;
+    box-shadow: -5px 20px 10px rgba(0, 0, 0, 0.1);
         }
 
         label {
-            font-size: 14px;
+            font-size: 20px;
             color: #333;
             margin-bottom: 5px;
         }
@@ -58,11 +60,11 @@
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+    background-color: #7591dd;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
@@ -71,11 +73,11 @@
 
         a {
             display: block;
-            text-align: center;
-            margin-top: 10px;
-            color: #4CAF50;
-            text-decoration: none;
-            font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    color: #e02146;
+    text-decoration: none;
+    font-size: 14px;
         }
 
         a:hover {
@@ -104,9 +106,10 @@
 </head>
 <body>
 
-    <h2>User Registration</h2>
+   
 
     <div class="form-container">
+     <h2>User Registration</h2>
         <form action="registration" method="POST">
 
             <label for="name">First Name:</label>
