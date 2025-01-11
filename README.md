@@ -62,7 +62,7 @@ Clone the Repository:**
 
 bash
 Copy code
-git clone https://github.com/yourusername/cake-shop.git
+git clone https://github.com/aniket7075/cake-shop.git
 
 
 Setup the Database:
