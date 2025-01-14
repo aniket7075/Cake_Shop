@@ -31,7 +31,6 @@ public class UserController {
 
     @Autowired
     private userinfo userRepo;
-
     @Autowired
     private productinfo productRepo;
 
@@ -163,7 +162,6 @@ public class UserController {
         redirectAttributes.addFlashAttribute("message", "Product added successfully!");
         return "redirect:/listt";
     }
-
     @RequestMapping("/list")
     public String listProducts(Model model) {
         List<Product> products = productRepo.findAll();
@@ -201,7 +199,8 @@ public class UserController {
     public String addToCart(@RequestParam Integer productId, HttpSession session) {
         List<Product> cart = (List<Product>) session.getAttribute("cart");
 
-        if (cart == null) {
+        if (cart == null) 
+        {
             cart = new ArrayList<>();
         }
 
@@ -244,7 +243,7 @@ public class UserController {
         if (cart != null) {
             for (Product product : cart) {
                 if (product.getId().equals(productId)) {
-                    product.setQuantity(quantity);
+                	productRepo.save(product);
                     break;
                 }
             }
@@ -275,7 +274,8 @@ public class UserController {
 
     @PostMapping("/placeOrder")
     public String placeOrder(HttpSession session, Model model) {
-        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        List<Product> attribute = (List<Product>) session.getAttribute("cart");
+		List<Product> cart = attribute;
         if (cart == null || cart.isEmpty()) {
             model.addAttribute("message", "Your cart is empty!");
             return "redirect:/dashboard";

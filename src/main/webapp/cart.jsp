@@ -154,7 +154,7 @@
                 <div class="cart-item-details">
                     <p><strong>${product.name}</strong></p>
                     <p>Price: Rs ${product.price}</p>
-                    <form action="/updateCart" method="post">
+                    <form action="/editCart" method="post">
                         <input type="hidden" name="productId" value="${product.id}">
                         <input type="number" name="quantity" value="${product.quantity}" min="1" class="form-control" required>
                         <button type="submit" class="btn btn-primary">Update Quantity</button>
