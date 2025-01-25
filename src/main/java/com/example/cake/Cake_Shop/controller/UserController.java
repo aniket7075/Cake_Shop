@@ -39,39 +39,37 @@ public class UserController {
         return "Home.jsp";
     }
 
-    @RequestMapping("/registration")
-    public String register(@ModelAttribute user newUser) {
-        userRepo.save(newUser);
-        return "login.jsp";
-    }
 
-    @RequestMapping("/login")
-    public String login(@RequestParam String email, 
-                        @RequestParam String password, 
-                        Model model, 
-                        HttpSession session) {
+	 @RequestMapping("/registration")
+	    public String register(@ModelAttribute user newUser) {
+		 userRepo.save(newUser);
+	        return "login.jsp"; 
+	    }
+	    @RequestMapping("/login")
+	    public String login(@RequestParam String email, 
+	                        @RequestParam String password, 
+	                        Model model, 
+	                        HttpSession session) {
 
-        if ("admin@admin.com".equals(email) && "admin123".equals(password)) {
-            session.setAttribute("role", "ADMIN");
-            return "redirect:/adminDashboard";
-        }
+	        if ("admin@admin.com".equals(email) && "admin123".equals(password)) {
+	            session.setAttribute("role", "ADMIN");
+	            return "redirect:/dashboard";
+	        }
 
-        user userFromDb = userRepo.findByEmail(email);
-        if (userFromDb != null) {
-            if (userFromDb.getPassword().equals(password)) {
-                session.setAttribute("currentUser", userFromDb);
-                session.setAttribute("role", "USER");
-                return "redirect:/dashboard";
-            } else {
-                model.addAttribute("error", "Invalid password");
-            }
-        } else {
-            model.addAttribute("error", "User not found");
-        }
-
-        return "login.jsp";
-    }
-
+	        user userFromDb =  userRepo.findByEmail(email);
+	        if (userFromDb != null) {
+	            if (userFromDb.getPassword().equals(password)) {
+	                session.setAttribute("currentUser", userFromDb);
+	                session.setAttribute("role", "USER");
+	                return "redirect:/dashboard";
+	            } else {
+	                model.addAttribute("error", "Invalid password");
+	            }
+	        } else {
+	            model.addAttribute("error", "User not found");
+	        }
+	        return "login.jsp";
+	    }
     @RequestMapping("/adminDashboard")
     public String showAdminDashboard(Model model) {
         List<Product> products = productRepo.findAll();
@@ -219,7 +217,8 @@ public class UserController {
     public String removeFromCart(@RequestParam Integer productId, HttpSession session) {
         List<Product> cart = (List<Product>) session.getAttribute("cart");
 
-        if (cart != null) {
+        if (cart != null) 
+        {
             Iterator<Product> iterator = cart.iterator();
             while (iterator.hasNext()) {
                 Product product = iterator.next();
@@ -276,7 +275,8 @@ public class UserController {
     public String placeOrder(HttpSession session, Model model) {
         List<Product> attribute = (List<Product>) session.getAttribute("cart");
 		List<Product> cart = attribute;
-        if (cart == null || cart.isEmpty()) {
+        if (cart == null || cart.isEmpty()) 
+        {
             model.addAttribute("message", "Your cart is empty!");
             return "redirect:/dashboard";
         }

@@ -40,19 +40,18 @@ public class Cart {
 		return product;
 	}
 
-	public void setProduct(Product product) {
+	public void setProduct(Product product) 
+	{
 		this.product = product;
 	}
-
-	public int getQuantity() {
+	public int getQuantity()
+	{
 		return quantity;
 	}
-
-	public void setQuantity(int quantity) {
+	public void setQuantity(int quantity)
+	{
 		this.quantity = quantity;
 	}
-
-    // Getters and Setters
-    
+   
 }
 
