@@ -49,7 +49,7 @@
         /* Product List Grid */
         .product-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Flexible grid */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Flexible grid */
             gap: 20px;
             padding: 20px;
         }
@@ -64,13 +64,14 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-
-        .product-card:hover {
+        .product-card:hover 
+        {
             transform: translateY(-5px); /* Hover effect for product card */
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .product-card img {
+        .product-card img
+         {
             max-width: 100%;
             height: 200px;
             object-fit: cover; /* Ensure the image maintains aspect ratio */
@@ -84,13 +85,15 @@
             color: #333;
         }
 
-        .product-card p {
+        .product-card p 
+        {
             color: #555;
             margin: 5px 0;
         }
 
         /* Button Styling */
-        .product-card button {
+        .product-card button 
+        {
             padding: 12px 20px;
             margin: 10px 5px;
             border: none;
@@ -100,7 +103,8 @@
             transition: background-color 0.3s;
         }
 
-        .product-card .add-to-cart {
+        .product-card .add-to-cart 
+        {
             background-color: #007bff;
             color: white;
         }
@@ -115,13 +119,16 @@
         }
 
         /* Form Styling for Buttons */
-        form {
+        form 
+        {
             display: inline-block;
         }
 
         /* Responsive Styling */
-        @media (max-width: 768px) {
-            .product-list {
+        @media (max-width: 768px) 
+        {
+            .product-list
+            {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
             }
         }
@@ -144,6 +151,7 @@
                     <!-- Add to Cart Button -->
                     <form action="/addToCart" method="post">
                         <input type="hidden" name="productId" value="${product.id}">
+                        
                         <button type="submit" class="add-to-cart">Add to Cart</button>
                     </form>
                     

@@ -62,6 +62,7 @@ public class UserController {
 	                session.setAttribute("currentUser", userFromDb);
 	                session.setAttribute("role", "USER");
 	                return "redirect:/dashboard";
+	                
 	            } else {
 	                model.addAttribute("error", "Invalid password");
 	            }
@@ -71,7 +72,8 @@ public class UserController {
 	        return "login.jsp";
 	    }
     @RequestMapping("/adminDashboard")
-    public String showAdminDashboard(Model model) {
+    public String showAdminDashboard(Model model) 
+    {
         List<Product> products = productRepo.findAll();
         model.addAttribute("products", products);
         List<user> users = userRepo.findAll();
@@ -80,7 +82,8 @@ public class UserController {
     }
 
     @RequestMapping("/dashboard")
-    public String showUserDashboard(Model model, HttpSession session) {
+    public String showUserDashboard(Model model, HttpSession session) 
+    {
         user currentUser = (user) session.getAttribute("currentUser");
 
         if (currentUser == null) {
