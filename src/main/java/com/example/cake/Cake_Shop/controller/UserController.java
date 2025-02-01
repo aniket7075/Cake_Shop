@@ -105,20 +105,23 @@ public class UserController {
     }
 
     @RequestMapping("/fetchUsers")
-    public String fetchUsers(Model model) {
+    public String fetchUsers(Model model) 
+    {
         List<user> userList = userRepo.findAll();
         model.addAttribute("users", userList);
         return "fetch.jsp";
     }
 
     @PostMapping("/addduser")
-    public String useradd(@ModelAttribute user newUs) {
+    public String useradd(@ModelAttribute user newUs) 
+    {
         userRepo.save(newUs);
         return "fetchUsers";
     }
 
     @GetMapping("/editt")
-    public String showEditUserForm(@RequestParam Integer id, Model model) {
+    public String showEditUserForm(@RequestParam Integer id, Model model) 
+    {
         user userToEdit = userRepo.findById(id).orElse(null);
         if (userToEdit != null) {
             model.addAttribute("user", userToEdit);
@@ -128,19 +131,22 @@ public class UserController {
     }
 
     @PostMapping("/editt")
-    public String editUser(@ModelAttribute user editedUser) {
+    public String editUser(@ModelAttribute user editedUser) 
+    {
         userRepo.save(editedUser);
         return "redirect:/fetchUsers";
     }
 
     @GetMapping("/deletee")
-    public String deleteUser(@RequestParam Integer id) {
+    public String deleteUser(@RequestParam Integer id) 
+    {
         userRepo.deleteById(id);
         return "redirect:/fetchUsers";
     }
 
     @GetMapping("/add")
-    public String showAddProductForm(Model model) {
+    public String showAddProductForm(Model model) 
+    {
         model.addAttribute("product", new Product());
         return "addproduct.jsp";
     }
@@ -148,12 +154,15 @@ public class UserController {
     @PostMapping("/add")
     public String addProduct(@ModelAttribute Product product, 
                              @RequestParam("photo") MultipartFile photo, 
-                             RedirectAttributes redirectAttributes) throws IOException {
-        if (!photo.isEmpty()) {
+                             RedirectAttributes redirectAttributes) throws IOException 
+    {
+        if (!photo.isEmpty()) 
+        {
             String fileName = photo.getOriginalFilename();
             Path path = Paths.get("src/main/resources/static/img/" + fileName);
             File directory = new File("src/main/resources/static/img");
-            if (!directory.exists()) {
+            if (!directory.exists()) 
+            {
                 directory.mkdirs();
             }
             photo.transferTo(path);
