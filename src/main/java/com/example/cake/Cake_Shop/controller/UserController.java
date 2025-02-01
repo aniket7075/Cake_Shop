@@ -173,40 +173,46 @@ public class UserController {
         return "redirect:/listt";
     }
     @RequestMapping("/list")
-    public String listProducts(Model model) {
+    public String listProducts(Model model)
+    {
         List<Product> products = productRepo.findAll();
         model.addAttribute("products", products);
         return "productciew.jsp";
     }
 
     @RequestMapping("/listt")
-    public String listProductss(Model model) {
+    public String listProductss(Model model)
+    {
         List<Product> products = productRepo.findAll();
         model.addAttribute("products", products);
         return "productList.jsp";
     }
 
     @GetMapping("/delete")
-    public String deleteProduct(@RequestParam Integer id) {
+    public String deleteProduct(@RequestParam Integer id)
+    {
         productRepo.deleteById(id);
         return "redirect:/listt";
     }
 
     @GetMapping("/edit")
-    public String showEditProductForm(@RequestParam Integer id, Model model) {
+    public String showEditProductForm(@RequestParam Integer id, Model model)
+    {
         Product product = productRepo.findById(id).orElse(null);
         model.addAttribute("product", product);
         return "editProduct.jsp";
     }
 
     @PostMapping("/edit")
-    public String editProduct(@ModelAttribute Product product) {
+    public String editProduct(@ModelAttribute Product product) 
+    {
         productRepo.save(product);
         return "redirect:/listt";
     }
 
     @PostMapping("/addToCart")
-    public String addToCart(@RequestParam Integer productId, HttpSession session) {
+    public String addToCart(@RequestParam Integer productId, HttpSession session) 
+    {
         List<Product> cart = (List<Product>) session.getAttribute("cart");
 
         if (cart == null) 
@@ -226,7 +232,8 @@ public class UserController {
     }
 
     @PostMapping("/removeFromCart")
-    public String removeFromCart(@RequestParam Integer productId, HttpSession session) {
+    public String removeFromCart(@RequestParam Integer productId, HttpSession session) 
+    {
         List<Product> cart = (List<Product>) session.getAttribute("cart");
 
         if (cart != null) 
@@ -234,7 +241,8 @@ public class UserController {
             Iterator<Product> iterator = cart.iterator();
             while (iterator.hasNext()) {
                 Product product = iterator.next();
-                if (product.getId().equals(productId)) {
+                if (product.getId().equals(productId)) 
+                {
                     iterator.remove();
                     break;
                 }
@@ -248,12 +256,16 @@ public class UserController {
     }
 
     @PostMapping("/editCart")
-    public String editCart(@RequestParam Integer productId, @RequestParam Integer quantity, HttpSession session, Model model) {
+    public String editCart(@RequestParam Integer productId, @RequestParam Integer quantity, HttpSession session, Model model)
+    {
         List<Product> cart = (List<Product>) session.getAttribute("cart");
 
-        if (cart != null) {
-            for (Product product : cart) {
-                if (product.getId().equals(productId)) {
+        if (cart != null) 
+        {
+            for (Product product : cart) 
+            {
+                if (product.getId().equals(productId))
+                {
                 	productRepo.save(product);
                     break;
                 }
@@ -267,14 +279,16 @@ public class UserController {
     }
 
     @PostMapping("/clearCart")
-    public String clearCart(HttpSession session) {
+    public String clearCart(HttpSession session)
+    {
         session.removeAttribute("cart");
         session.setAttribute("cartCount", 0);
         return "redirect:/dashboard";
     }
 
     @PostMapping("/checkout")
-    public String checkout(HttpSession session, Model model) {
+    public String checkout(HttpSession session, Model model)
+    {
         @SuppressWarnings("unchecked")
         List<Product> cart = (List<Product>) session.getAttribute("cart");
         if (cart != null) {
@@ -284,7 +298,8 @@ public class UserController {
     }
 
     @PostMapping("/placeOrder")
-    public String placeOrder(HttpSession session, Model model) {
+    public String placeOrder(HttpSession session, Model model) 
+    {
         List<Product> attribute = (List<Product>) session.getAttribute("cart");
 		List<Product> cart = attribute;
         if (cart == null || cart.isEmpty()) 
@@ -294,7 +309,8 @@ public class UserController {
         }
 
         double totalAmount = 0;
-        for (Product product : cart) {
+        for (Product product : cart) 
+        {
             totalAmount += product.getPrice();
         }
 
