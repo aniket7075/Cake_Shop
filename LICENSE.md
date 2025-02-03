@@ -10,6 +10,7 @@ Secure user authentication system with password validation and error handling.
 Dynamic Home Page:
 
 
+
 A beautifully designed home page with animated buttons and background images that reflect the theme of a premium cake shop.
 
 
