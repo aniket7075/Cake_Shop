@@ -16,14 +16,16 @@
             padding: 0;
         }
 
-        h2 {
+        h2 
+        {
             text-align: center;
             margin-top: 40px;
             color:#000000;
             font-size: 30px;
         }
 
-        .form-container {
+        .form-container 
+        {
            width: 400px;
     margin: 50px auto;
     padding: 30px;
@@ -33,7 +35,8 @@
     box-shadow: -5px 20px 10px rgba(0, 0, 0, 0.1);
         }
 
-        label {
+        label 
+        {
             font-size: 20px;
             color: #333;
             margin-bottom: 5px;
@@ -42,7 +45,8 @@
         input[type="text"],
         input[type="email"],
         input[type="password"],
-        input[type="submit"] {
+        input[type="submit"] 
+        {
             width: 100%;
             padding: 10px;
             margin: 8px 0 15px 0;
@@ -54,12 +58,14 @@
 
         input[type="text"]:focus,
         input[type="email"]:focus,
-        input[type="password"]:focus {
+        input[type="password"]:focus
+         {
             border-color: #4CAF50;
             outline: none;
         }
 
-        input[type="submit"] {
+        input[type="submit"]
+         {
     background-color: #7591dd;
     color: white;
     border: none;
@@ -67,25 +73,29 @@
     transition: background-color 0.3s ease;
         }
 
-        input[type="submit"]:hover {
+        input[type="submit"]:hover 
+        {
             background-color: #45a049;
         }
 
-        a {
+        a 
+        {
             display: block;
-    text-align: center;
-    margin-top: 10px;
-    color: #e02146;
-    text-decoration: none;
-    font-size: 14px;
+    		text-align: center;
+   			 margin-top: 10px;
+    		color: #e02146;
+    		text-decoration: none;
+    		font-size: 14px;
         }
 
-        a:hover {
+        a:hover 
+        {
             text-decoration: underline;
         }
 
         .error,
-        .success {
+        .success 
+        {
             margin-top: 20px;
             padding: 10px;
             text-align: center;
@@ -93,15 +103,18 @@
             font-size: 14px;
         }
 
-        .error {
+        .error 
+        {
             background-color: #f8d7da;
             color: #721c24;
         }
 
-        .success {
+        .success 
+        {
             background-color: #d4edda;
             color: #155724;
         }
+        
     </style>
 </head>
 <body>
