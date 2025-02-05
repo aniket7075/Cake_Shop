@@ -53,7 +53,7 @@ public class UserController {
 
 	        if ("admin@admin.com".equals(email) && "admin123".equals(password)) {
 	            session.setAttribute("role", "ADMIN");
-	            return "redirect:/dashboard";
+	            return "redirect:/adminDashboard";
 	        }
 
 	        user userFromDb =  userRepo.findByEmail(email);
