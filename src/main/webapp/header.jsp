@@ -131,7 +131,7 @@
     <!-- Navbar Section -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <!-- Cake Shop Brand -->
+           
             <a class="navbar-brand" href="/dashboard">Cake Shop</a>
 
             <!-- Navbar Toggler for Mobile View -->
